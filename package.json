@@ -1,0 +1,25 @@
+{
+  "name": "fulltextsearch",
+  "version": "0.0.1",
+  "description": "full text search for Vietnamese",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ottg@bitbucket.org/php_fly/fulltextsearch.git"
+  },
+  "keywords": [
+    "full",
+    "text",
+    "search",
+    "vietnamese",
+    "nodejs",
+    "mongodb",
+    "unicode"
+  ],
+  "author": "leduykhoa",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/php_fly/fulltextsearch#readme"
+}
