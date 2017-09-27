@@ -5,6 +5,9 @@
  * Website: web-fast.com
  * Mobile: +84973421508
  * Date: 2017/09/27
- * Time: 08:14
+ * Time: 16:37
  */
-module.exports = require('./src/full.text.search');
+
+const vi = require('./src/full.text.search.vi');
+
+module.exports = {vi:vi};

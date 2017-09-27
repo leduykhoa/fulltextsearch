@@ -97,7 +97,7 @@ function detectString() {
     return strReturn.join('|');
 }
 
-fullTextSearchVn = function () {
+fullTextSearchVi = function () {
     var queries = [];
     if (arguments[0] !== undefined && arguments[0] !== null && arguments[0] !== '') {
         // Get word by string
@@ -112,4 +112,4 @@ fullTextSearchVn = function () {
     return queries.join('|');
 };
 
-module.exports = fullTextSearchVn;
+module.exports = fullTextSearchVi;
