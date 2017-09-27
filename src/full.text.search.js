@@ -8,6 +8,6 @@
  * Time: 16:37
  */
 
-const vi = require('./src/full.text.search.vi');
+const vi = require('./full.text.search.vi');
 
 module.exports = {vi:vi};
