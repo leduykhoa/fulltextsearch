@@ -22,5 +22,9 @@
   "author": "leduykhoa",
   "license": "ISC",
   "homepage": "https://github.com/leduykhoa/fulltextsearch#readme",
-  "demo": "https://fulltextsearchdemo.herokuapp.com/twitter_user"
+  "demo": "https://fulltextsearchdemo.herokuapp.com/twitter_user",
+  "dependencies": {},
+  "engines": {
+    "node": "*"
+  }
 }
