@@ -1,6 +1,6 @@
 {
   "name": "fulltextsearch",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "full text search for Vietnamese",
   "main": "index.js",
   "scripts": {
@@ -11,9 +11,7 @@
     "url": "git+https://github.com/leduykhoa/fulltextsearch.git"
   },
   "keywords": [
-    "full",
-    "text",
-    "search",
+    "full text search",
     "vietnamese",
     "nodejs",
     "mongodb",

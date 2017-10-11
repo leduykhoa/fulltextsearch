@@ -80,13 +80,14 @@ function detectString() {
     // Set item origin(Of course)
     strReturn.push(strOrigin.join(''));
 
-    function addRegularExpression (str) {
-        if(strReturn.indexOf(str)===-1){
+    // Add entity
+    function addRegularExpression(str) {
+        if (strReturn.indexOf(str) === -1) {
             strReturn.push(str);
         }
     }
 
-    if(strLength==3){
+    if (strLength == 3) {
         // Setup Matrix AxBxC
         for (var indexRowOne = 0; indexRowOne < strLength; indexRowOne++) {
             var rowOne = strArray[indexRowOne];
@@ -110,7 +111,7 @@ function detectString() {
                 }
             }
         }
-    }else if(strLength==2){
+    } else if (strLength == 2) {
         // Setup Matrix AxB
         for (var indexRowOne = 0; indexRowOne < strLength; indexRowOne++) {
             var rowOne = strArray[indexRowOne];
@@ -128,7 +129,7 @@ function detectString() {
                 }
             }
         }
-    }else if(strLength==1){
+    } else if (strLength == 1) {
         // Loop
         for (var indexRowOne = 0; indexRowOne < strLength; indexRowOne++) {
             var rowOne = strArray[indexRowOne];
@@ -148,8 +149,8 @@ function detectString() {
 fullTextSearchVi = function () {
     var queries = [];
     if (arguments[0] !== undefined && arguments[0] !== null && arguments[0] !== '') {
-        // Get word by string
-        var str = arguments[0].split(' ');
+        // Get words by string
+        var str = arguments[0].trim().split(' ');
         for (var i = 0; i < str.length; i++) {
             var temp = str[i];
             // Render word by characters same same
