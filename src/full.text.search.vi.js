@@ -77,15 +77,28 @@ function detectString() {
 
     var strReturn = [];
     var strLength = strArray.length;
-    // Set item origin(Of course)
-    strReturn.push(strOrigin.join(''));
 
     // Add entity
     function addRegularExpression(str) {
+        // Special characters meaning in regular expressions
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
+        str = str.replace(/\\/g, '\\\\');
+        str = str.replace(/\|/g, '\\\|');
+        str = str.replace(/\(/g, "\\\(");
+        str = str.replace(/\)/g, "\\\)");
+        str = str.replace(/\[/g, "\\\[");
+        str = str.replace(/\+/g, "\\\+");
+        str = str.replace(/\./g, "\\\.");
+        str = str.replace(/\*/g, "\\\*");
+        str = str.replace(/\?/g, "\\\?");
+
         if (strReturn.indexOf(str) === -1) {
             strReturn.push(str);
         }
     }
+
+    // Set item origin(Of course)
+    addRegularExpression(strOrigin.join(''));
 
     if (strLength == 3) {
         // Setup Matrix AxBxC

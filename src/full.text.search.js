@@ -10,4 +10,4 @@
 
 const vi = require('./full.text.search.vi');
 
-module.exports = {vi:vi};
+module.exports = {vi: vi};

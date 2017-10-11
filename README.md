@@ -10,12 +10,9 @@ npm install fulltextsearch --save
 ```
 ## Basic Usage
 1. Include
-
 ```javascript
-
 const fullTextSearch = require('fulltextsearch');
 var fullTextSearchVi = fullTextSearch.vi;
-
 ```
 2. Router
 ```javascript
