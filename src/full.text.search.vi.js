@@ -60,40 +60,88 @@ function detectString() {
     var str = arguments[0];
     var unicodeArray = getUnicode();
     var strArray = [];
-    var strOrigin = str.toLowerCase().split('');
-    str = str.toLowerCase().split('');
+    var strOrigin = str.split('');
+    str = strOrigin.slice();
     // Get matrix characters
     for (var i = 0; i < str.length; i++) {
         var char = str[i];
         for (var y = 0; y < unicodeArray.length; y++) {
             var unicode = unicodeArray[y];
             if (unicode.length == 1) continue;
-            if (unicode.indexOf(char)>=0) {
+            if (unicode.indexOf(char) >= 0) {
                 strArray.push({index: i, unicode: unicode});
                 break;
             }
         }
     }
+
     var strReturn = [];
+    var strLength = strArray.length;
     // Set item origin(Of course)
     strReturn.push(strOrigin.join(''));
-    if(strArray.length>0){
-        for (var i = 0; i < strArray.length; i++) {
-            var rowI = strArray[i];
-            for (var y = 0; y < strArray.length; y++) {
-                var rowY = strArray[y];
-                for (var k = 0; k < rowI.unicode.length; k++) {
-                    for (var j = 0; j < rowY.unicode.length; j++) {
-                        str = strOrigin.slice();
-                        // Thinking
-                        str[rowI.index] = rowI.unicode[k];
-                        str[rowY.index] = rowY.unicode[j];
-                        strReturn.push(str.join(''));
+
+    function addRegularExpression (str) {
+        if(strReturn.indexOf(str)===-1){
+            strReturn.push(str);
+        }
+    }
+
+    if(strLength==3){
+        // Setup Matrix AxBxC
+        for (var indexRowOne = 0; indexRowOne < strLength; indexRowOne++) {
+            var rowOne = strArray[indexRowOne];
+            for (var indexRowTwo = 0; indexRowTwo < strLength; indexRowTwo++) {
+                var rowTwo = strArray[indexRowTwo];
+                for (var indexRowThree = 0; indexRowThree < strLength; indexRowThree++) {
+                    var rowThree = strArray[indexRowThree];
+                    // Go to all items
+                    for (var a = 0; a < rowOne.unicode.length; a++) {
+                        for (var b = 0; b < rowTwo.unicode.length; b++) {
+                            for (var c = 0; c < rowThree.unicode.length; c++) {
+                                str = strOrigin.slice();
+                                // Thinking
+                                str[rowOne.index] = rowOne.unicode[a];
+                                str[rowTwo.index] = rowTwo.unicode[b];
+                                str[rowThree.index] = rowThree.unicode[c];
+                                addRegularExpression(str.join(''));
+                            }
+                        }
                     }
                 }
             }
         }
+    }else if(strLength==2){
+        // Setup Matrix AxB
+        for (var indexRowOne = 0; indexRowOne < strLength; indexRowOne++) {
+            var rowOne = strArray[indexRowOne];
+            for (var indexRowTwo = 0; indexRowTwo < strLength; indexRowTwo++) {
+                var rowTwo = strArray[indexRowTwo];
+                // Go to all items
+                for (var a = 0; a < rowOne.unicode.length; a++) {
+                    for (var b = 0; b < rowTwo.unicode.length; b++) {
+                        str = strOrigin.slice();
+                        // Thinking
+                        str[rowOne.index] = rowOne.unicode[a];
+                        str[rowTwo.index] = rowTwo.unicode[b];
+                        addRegularExpression(str.join(''));
+                    }
+                }
+            }
+        }
+    }else if(strLength==1){
+        // Loop
+        for (var indexRowOne = 0; indexRowOne < strLength; indexRowOne++) {
+            var rowOne = strArray[indexRowOne];
+            // Go to all items
+            for (var a = 0; a < rowOne.unicode.length; a++) {
+                str = strOrigin.slice();
+                // Thinking
+                str[rowOne.index] = rowOne.unicode[a];
+                addRegularExpression(str.join(''));
+            }
+        }
     }
+
     return strReturn.join('|');
 }
 

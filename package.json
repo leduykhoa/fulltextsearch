@@ -1,6 +1,6 @@
 {
   "name": "fulltextsearch",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "full text search for Vietnamese",
   "main": "index.js",
   "scripts": {

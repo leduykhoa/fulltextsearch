@@ -8,8 +8,7 @@ install via npm:
 ```bash
 npm install fulltextsearch --save
 ```
-
-##Basic Usage
+## Basic Usage
 1. Include
 
 ```javascript
